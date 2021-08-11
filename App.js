@@ -1,21 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import Home from './components/comps/Home';
+import { NavigationContainer, DarkTheme } from '@react-navigation/native';
+import { useColorScheme } from 'react-native';
+import PlayWidget from './components/comps/PlayWidget';
+import Tabs from './navigation/Tabs'
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    const scheme = useColorScheme();
+    return (
+        <NavigationContainer theme={DarkTheme}>
+            <Tabs />
+            <PlayWidget />
+        </NavigationContainer>
+    );
+}
